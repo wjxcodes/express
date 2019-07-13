@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Wjxcodes\\Express\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wjxcodes\\Express\\ServiceProvider"
+            ]
+        }
+    }
+}
