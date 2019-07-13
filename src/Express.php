@@ -36,7 +36,7 @@ class Express
         return $this->_returnArray($content);
     }
  
-    public function query($com,$no,$receiverPhone){
+    public function getExpressInfo($com,$no,$receiverPhone){
 
     	$com_arr = ['sf','sto','yt','yd','tt','ems','zto','ht','qf','db','gt','rfd','jd','zjs','emsg','fedex','yzgn','ups','ztky','jiaji','suer','xfwl','yousu','zhongyou','tdhy','axd','kuaijie','aae','dhl','dpex','ds','fedexcn','ocs','tnt','coe','cxwl','cs','cszx','aj','bfdf','chengguang','dsf','ctwl','feibao','malaysiaems','ane66','ztoky','ycgky','ycky','youzheng','bsky','suning','anneng','jiuye'];
     	if (!\in_array(\strtolower($com), $com_arr)) {
@@ -49,7 +49,7 @@ class Express
             'no' => $no,
             'receiverPhone' => $receiverPhone
         );
-        
+
         try {
 
 			$content = $this->juhecurl($this->queryUrl,$params,1);

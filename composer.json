@@ -1,4 +1,13 @@
 {
+	"name": "wjxcodes/express",
+    "description": "聚合数据快递查询扩展.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "overtrue",
+            "email": "i@overtrue.me"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Wjxcodes\\Express\\": "src"
