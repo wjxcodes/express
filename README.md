@@ -25,6 +25,12 @@ $weather = new Express($appkey);
 
 ###  获取物流信息
 
+#### 参数说明
+
+`com`必填，物流公司编号
+`no`必填，物流单号
+`receiverPhone`,非必填，收件人手机号后四位，顺丰快递需要此参数
+
 ```php
 $response = $express->getExpressInfo($com,$no,$receiverPhone);
 ```
