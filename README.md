@@ -1,28 +1,66 @@
 <h1 align="center"> express </h1>
 
-<p align="center"> ������sdk-Laravel�.</p>
+<p align="center">       sdk-Laravel .</p>
 
 
-## Installing
+## 安装
 
 ```shell
 $ composer require wjxcodes/express -vvv
 ```
 
-## Usage
+## 配置
 
-TODO
+在使用本扩展之前，你需要去 [聚合数据](https://www.juhe.cn/docs/api/id/43) 注册账号，然后申请使用物流查询接口，获取应用的 AppKey。
 
-## Contributing
+### 在 Laravel 中使用
 
-You can contribute in one of three ways:
+在 Laravel 中使用也是同样的安装方式，配置写在 `config/services.php` 中：
 
-1. File bug reports using the [issue tracker](https://github.com/wjxcodes/express/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/wjxcodes/express/issues).
-3. Contribute new features or update the wiki.
+```php
+    .
+    .
+    .
+     'express' => [
+        'key' => env('JUHE_EXPRESS_APP_KEY'),
+    ],
+```
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+然后在 `.env` 中配置 `JUHE_EXPRESS_APP_KEY` ：
 
-## License
+```env
+JUHE_EXPRESS_APP_KEY=xxxxxxxxxxxxxxxxxxxxx
+```
 
-MIT
+可以用两种方式来获取 `Wjxcodes\Express\Express` 实例：
+
+#### 方法参数注入
+
+```php
+    .
+    .
+    .
+    public function edit(Express $express) 
+    {
+        $response = $express->getExpressInfo($com,$no,$receiverPhone);
+    }
+    .
+    .
+    .
+```
+
+#### 服务名访问
+
+```php
+    .
+    .
+    .
+    public function edit() 
+    {
+        $response = app('express')->getExpressInfo($com,$no,$receiverPhone);
+    }
+    .
+    .
+    .
+
+```
