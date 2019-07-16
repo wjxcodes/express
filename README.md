@@ -36,7 +36,7 @@ $response = $express->getExpressInfo($com,$no,$receiverPhone);
 ```
 
 
-
+* * *
 ### 在 Laravel 中使用
 
 在 Laravel 中使用也是同样的安装方式，配置写在 `config/services.php` 中：
@@ -64,7 +64,7 @@ JUHE_EXPRESS_APP_KEY=xxxxxxxxxxxxxxxxxxxxx
     .
     .
     .
-    public function edit(Express $express) 
+    public function query(Express $express) 
     {
         $response = $express->getExpressInfo($com,$no,$receiverPhone);
     }
@@ -79,7 +79,7 @@ JUHE_EXPRESS_APP_KEY=xxxxxxxxxxxxxxxxxxxxx
     .
     .
     .
-    public function edit() 
+    public function query() 
     {
         $response = app('express')->getExpressInfo($com,$no,$receiverPhone);
     }
