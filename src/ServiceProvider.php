@@ -12,9 +12,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     public function boot()
     {
-        $this->publishes([
-            __DIR__ . '/config/express.php' => config_path('express.php'),
-        ]);
+        $this->publishes([ __DIR__ . '/config' => config_path()],'wjxcodes-express');
 
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         
