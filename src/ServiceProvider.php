@@ -10,11 +10,22 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     protected $defer = true;
 
+    public function boot()
+    {
+        $this->publishes([
+            __DIR__ . '/config/express.php' => config_path('express.php'),
+        ]);
+
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        
+    }
+
+
     public function register()
     {
 
         $this->app->singleton(Express::class, function () {
-            return new Express(config('services.express.appkey'));
+            return new Express(config('express.appkey'));
         });
 
         $this->app->alias(Express::class, 'express');
